@@ -1,0 +1,60 @@
+{% extends "header.html" %}
+    {% load staticfiles %}
+    {% load static %}
+
+{% block navbar %}
+    <li>
+        <a class="page-scroll" href="{% url 'register_user' %}">Register Now</a>
+    </li>
+{% endblock %}
+
+{% block content %}
+
+    <header>
+        <div class="header-content"">
+            <div class="header-content-inner" style="background-color: rgba(0,0,0,.7);"><br>
+                <h1 id="homeHeading">Finding the perfect school never was so easy</h1>
+                <hr>
+                <p>This platform will bring schools, parents and students together in the school selection process. To start choose who you are:
+
+                <a href="{% url 'login_user' %}" class="btn btn-primary btn-xl page-scroll">Parent/Student</a> or
+                <a href="{% url 'login_school' %}" class="btn btn-primary btn-xl page-scroll">School</a>
+
+                <br><br></p>
+            </div>
+        </div>
+    </header>
+
+	<section class="bg-primary" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading">We've got what you need!</h2>
+                    <hr class="light">
+                    <p class="text-faded">This AI system recommends the best options of schools based on the profile of the students. This is also a platform where schools can upload their basic information and have more opportunities to be recommended for the system</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading">Let's Get In Touch!</h2>
+                    <hr class="primary">
+                    <p>Send us an email and we will get back to you as soon as possible!</p>
+                </div>
+                <div class="col-lg-4 col-lg-offset-2 text-center">
+                    <i class="fa fa-phone fa-3x sr-contact"></i>
+                    <p>123-456-6789</p>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <i class="fa fa-envelope-o fa-3x sr-contact"></i>
+                    <p><a href="mailto:your-email@your-domain.com">sorboy11@gmail.com</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
