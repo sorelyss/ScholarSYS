@@ -7,45 +7,84 @@
 {% endblock %}
 
 {% block content %}
-<section style="background-color: LightBlue">
-    <div class="container" class="text-center">
+
+	<style type="text/css">
+  		body{
+       background:url("static\\img\\header.jpg");
+       background-size: cover;       /* For flexibility */
+       }
+	</style>
+
+<body style="background-color: LightBlue">
+<br><br><br><br><br>
+	<div class="col-md-6 col-md-offset-3">
 	{% if form.errors %}
-		<p>Your username and password didn't match. Please try again.</p>
+	<p>Your username and password didn't match. Please try again.</p>
 	{% endif %}
 
 	{% if next %}
 	    {% if user.is_authenticated %}
 	    <p>Your account doesn't have access to this page. To proceed,
-	    please login with an account that has access. {{next}} </p>
+	    please login with an account that has access.</p>
 	    {% else %}
 	    <p>Please login to see this page.</p>
 	    {% endif %}
 	{% endif %}
-
-	<form method="post" action="{% url 'login_user' %}" class="text-center">
-	{% csrf_token %}
-	<table>
-	<tr>
-	    <td>{{ form.username.label_tag }}</td>
-	    <td>{{ form.username }}</td>
-	</tr>
-	<tr>
-	    <td>{{ form.password.label_tag }}</td>
-	    <td>{{ form.password }}</td>
-	</tr>
-	</table>
-
-	<input type="submit" value="login" />
-	<input type="hidden" name="next" value="{{ next }}" />
+	</div>
+	<form method="post" >
+		{% csrf_token %}
+		 <div class="row">
+	    	<div class="col-md-3 col-md-offset-4" style="background-color: rgba(0,0,0,.5);">
+	    		<div class="form-group">
+	    			<br>
+	        		{{ form.username.label_tag }}
+	        		<input class="form-control" type="text" name="username" required>
+	    	   </div>
+	        </div>
+	    </div>
+	    <div class="row">
+	    	<div class="col-md-3 col-md-offset-4" style="background-color: rgba(0,0,0,.5);">
+	    		<div class="form-group">
+	        		{{ form.password.label_tag }}
+	        		<input class="form-control" type="password" name="password" required>
+	    	   </div>
+	        </div>
+	    </div>
+	    <div class="row">
+	    	<div class="col-md-3 col-md-offset-4" style="background-color: rgba(0,0,0,.5);">
+	    		<div class="form-group text-center">
+	    			<!-- ojooooo quitar login_user y poner lo de lostpassword -->
+	                <a href="{% url 'login_user' %}">Lost password? </a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	                <input class="btn btn-primary" type="submit" value="&nbsp;&nbsp;Login&nbsp;&nbsp;">        		
+	    	   </div>
+	        </div>
+	    </div>
 	</form>
 
-	<p>{{ next }}</p>
-
-	{# Assumes you setup the password_reset view in your URLconf #}
-	<p><a href="{% url 'login_user' %}">Lost password?</a></p>
-	<!-- ojooooo quitar login_user y poner lo de lostpassword -->
-	
-	</div>
-</section>
-
+</body>
+<br><br><br><br><br><br><br><br>
 {% endblock %}
+
+
+<form method="post" action="{% url 'login_user' %}">
+{% csrf_token %}
+<table>
+<tr>
+    <td>{{ form.username.label_tag }}</td>
+    <td>{{ form.username }}</td>
+</tr>
+<tr>
+    <td>{{ form.password.label_tag }}</td>
+    <td>{{ form.password }}</td>
+</tr>
+</table>
+
+<input type="submit" value="login" />
+<input type="hidden" name="next" value="{{ next }}" />
+</form>
+
+{# Assumes you setup the password_reset view in your URLconf #}
+<p><a href="{% url 'login_user' %}">Lost password?</a></p>
+
+
+
