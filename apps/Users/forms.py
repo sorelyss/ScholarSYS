@@ -18,3 +18,6 @@ class UserRegisterForm(UserCreationForm):
         if commit:
             user.save()
         return user
+
+    def _str_(self):
+       return '{}'.format(self.name)
