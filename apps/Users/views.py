@@ -13,4 +13,10 @@ class Register_user(CreateView):
 	model = User
 	template_name = "users/register.html"
 	form_class = UserRegisterForm
-	success_url = reverse_lazy('home')
+	success_url = reverse_lazy('wall_user')
+
+# OJOOOOOOO
+# Hacer variable la navbar incluso cuando es home... es decir mandar a todas las views el request.user
+def Wall_user(request):
+	return render(request, 'users/wall.html')
+	#return render(request, 'users/wall.html',{'user':request.user})

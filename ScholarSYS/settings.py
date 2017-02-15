@@ -141,4 +141,5 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-LOGIN_REDIRECT_URL = reverse_lazy('home')
+LOGIN_REDIRECT_URL = reverse_lazy('wall_user')
+LOGOUT_REDIRECT_URL = reverse_lazy('login_user')

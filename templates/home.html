@@ -1,11 +1,17 @@
 {% extends "header.html" %}
-    {% load staticfiles %}
-    {% load static %}
+{% load staticfiles %}
+{% load static %}
 
 {% block navbar %}
-    <li>
-        <a class="page-scroll" href="{% url 'register_user' %}">Register Now</a>
-    </li>
+    {% if user.username %}
+        <li>
+            <a class="page-scroll" href="{% url 'wall_user' %}">{{user.username}}'s Wall</a>
+        </li>
+    {% else %}
+        <li>
+            <a class="page-scroll" href="{% url 'register_user' %}">Register Now</a>
+        </li>
+    {% endif %}
 {% endblock %}
 
 {% block content %}
