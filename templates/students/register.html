@@ -1,0 +1,65 @@
+{% extends "header.html" %}
+
+{% block content %}
+
+	<style type="text/css">
+  		section{
+       background:url("static\\img\\header.jpg");
+       background-size: cover;       /* For flexibility */
+       }
+	</style>
+
+<section>
+	<form method="post">
+		{% csrf_token %}
+		
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4" style="background-color: rgba(0,0,0,.5);">
+				<br>
+				<div class="form-group">
+					{{form.name.label_tag}}
+					<input class="form-control" type="text" name="name" required>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4" style="background-color: rgba(0,0,0,.5);">
+				<div class="form-group">
+					{{form.age.label_tag}}
+					<input class="form-control" type="number" name="age" required>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4" style="background-color: rgba(0,0,0,.5);">
+				<div class="form-group">
+					{{form.gender.label_tag}}
+					<select class="form-control" type="select" name="gender" required>						
+						<option value="M">Male</option>
+						<option value="F">Female</option>
+					</select>
+				</div>
+			</div>
+		</div>
+        <div class="row">
+			<div class="col-md-4 col-md-offset-4" style="background-color: rgba(0,0,0,.5);">
+				<div class="form-group">
+					<input name="pariente" value="{{user.id}}" hidden>
+				</div>
+			</div>
+		</div> 
+		
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4" style="background-color: rgba(0,0,0,.5);">
+				<div class="form-group text-center">
+					<button class="btn btn-primary "type="submit">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Save&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+				</div>
+			</div>
+		</div>
+		
+	</form>
+
+</section>
+
+
+{% endblock %}

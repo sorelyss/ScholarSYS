@@ -19,10 +19,34 @@
        background-size: cover;       /* For flexibility */
        }
     </style>
-
-    <body style="background-color: LightBlue">
+<body style="background-color: LightBlue">
     <br><br><br><br><br>
-    <p>Holiii</p>
-    </body>
+    <div style="background-color: rgba(30,30,50,.9);"><br>
+        <table >
+            <td><table class="text-center">
+            <tr><td><a href="{% url 'register_student' %}"><img src="{% static 'img/add_student.png' %}"></a></tr></td>
+            <tr><td><a href="{% url 'register_student' %}">Add a Student</a></td></tr>
+            </table></td>
 
+            {% for s in students %}
+                <td><table>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</table></td> 
+                <td>
+                    <table class="text-center">
+                    <tr>
+                        <td>
+                        {% if s.gender == 'F' %}
+                            <a href="{% url 'home' %}"><img src="{% static 'img/F_student.png' %}"></a>
+                        {% elif s.gender == 'M' %}
+                            <a href="{% url 'home' %}"><img src="{% static 'img/M_student.png' %}"></a>
+                        {% endif %}
+                        </td>
+                    </tr>
+                    <tr><td><a href="{% url 'home' %}"> {{s.name}} </a></td></tr>
+                    </table>
+                </td> 
+            {% endfor %}
+        </table>   
+    <br></div>
+</body>
+    <br><br><br><br><br>
 {% endblock %}

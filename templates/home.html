@@ -7,6 +7,9 @@
         <li>
             <a class="page-scroll" href="{% url 'wall_user' %}">{{user.username}}'s Wall</a>
         </li>
+        <li>
+        <a class="page-scroll" href="{% url 'logout_user' %}">Logout</a>
+        </li>
     {% else %}
         <li>
             <a class="page-scroll" href="{% url 'register_user' %}">Register Now</a>
@@ -22,9 +25,12 @@
                 <h1 id="homeHeading">Finding the perfect school never was so easy</h1>
                 <hr>
                 <p>This platform will bring schools, parents and students together in the school selection process. To start choose who you are:
-
-                <a href="{% url 'login_user' %}" class="btn btn-primary btn-xl page-scroll">Parent/Student</a> or
-                <a href="{% url 'login_school' %}" class="btn btn-primary btn-xl page-scroll">School</a>
+                {% if user.username %}
+                    <a href="{% url 'wall_user' %}" class="btn btn-primary btn-xl page-scroll">Parent/Student</a>
+                {% else %}
+                    <a href="{% url 'login_user' %}" class="btn btn-primary btn-xl page-scroll">Parent/Student</a>
+                {% endif %}
+                or <a href="{% url 'login_school' %}" class="btn btn-primary btn-xl page-scroll">School</a>
 
                 <br><br></p>
             </div>

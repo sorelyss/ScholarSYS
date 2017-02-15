@@ -4,6 +4,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.views.generic import CreateView
 from django.core.urlresolvers import reverse_lazy
 from apps.Users.forms import UserRegisterForm
+from apps.Students.models import Student
 
 
 def Home(request):
@@ -17,6 +18,8 @@ class Register_user(CreateView):
 
 # OJOOOOOOO
 # Hacer variable la navbar incluso cuando es home... es decir mandar a todas las views el request.user
+# link bueno :v http://jinja.pocoo.org/docs/2.9/templates/
 def Wall_user(request):
-	return render(request, 'users/wall.html')
+	students = Student.objects.all().filter(pariente_id=request.user.id)
+	return render(request, 'users/wall.html',{'students':students})
 	#return render(request, 'users/wall.html',{'user':request.user})
