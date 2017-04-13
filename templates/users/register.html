@@ -10,6 +10,14 @@
 	</style>
 
 <section>
+	{% if form.errors %}
+	<div class="alert alert-warning">
+	<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+	<p>Please try again.</p>
+	{{form.errors}}
+	</div>
+	{% endif %}
+
 	<form method="post">
 		{% csrf_token %}
 		

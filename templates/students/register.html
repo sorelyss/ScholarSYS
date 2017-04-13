@@ -1,10 +1,21 @@
 {% extends "header.html" %}
+{% load staticfiles %}
+{% load static %}
+
+{% block navbar %}
+    <li>
+        <a class="page-scroll" href="{% url 'wall_user' %}">{{user.username}}'s Wall</a>
+    </li>
+    <li>
+        <a class="page-scroll" href="{% url 'logout_user' %}">Logout</a>
+    </li>
+{% endblock %}
 
 {% block content %}
 
 	<style type="text/css">
   		section{
-       background:url("static\\img\\header.jpg");
+       background: url({% static 'img/header.jpg' %});
        background-size: cover;       /* For flexibility */
        }
 	</style>

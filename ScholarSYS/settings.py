@@ -26,7 +26,7 @@ SECRET_KEY = '&=&myuzi3duq7=rv4tkv)k9m%z8f_pn5okan1pdk)vsqt)5*8u'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0','localhost']
 
 
 # Application definition
@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_mysql',
 ]
 
 MIDDLEWARE = [
@@ -85,16 +84,7 @@ DATABASES = {
         'USER': 'root',
         'PASSWORD': 'control1234',
         'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
-        'PORT': '3306',
-        'OPTIONS': {
-            # Tell MySQLdb to connect with 'utf8mb4' character set
-            'charset': 'utf8mb4',
-        },
-        # Tell Django to build the test database with the 'utf8mb4' character set
-        'TEST': {
-            'CHARSET': 'utf8mb4',
-            'COLLATION': 'utf8mb4_unicode_ci',
-        }
+        'PORT': '3306'
     }
 }
 

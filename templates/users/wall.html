@@ -35,13 +35,13 @@
                     <tr>
                         <td>
                         {% if s.gender == 'F' %}
-                            <a href="{% url 'home' %}"><img src="{% static 'img/F_student.png' %}"></a>
+                            <a href="{% url 'st_profile' %}?id={{s.id}}"><img src="{% static 'img/F_student.png' %}"></a>
                         {% elif s.gender == 'M' %}
-                            <a href="{% url 'home' %}"><img src="{% static 'img/M_student.png' %}"></a>
+                            <a href="{% url 'st_profile' %}?id={{s.id}}"><img src="{% static 'img/M_student.png' %}"></a>
                         {% endif %}
                         </td>
                     </tr>
-                    <tr><td><a href="{% url 'home' %}"> {{s.name}} </a></td></tr>
+                    <tr><td><a href="{% url 'st_profile' %}?id={{s.id}}"> {{s.name}} </a></td></tr>
                     </table>
                 </td> 
             {% endfor %}

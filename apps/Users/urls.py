@@ -7,7 +7,8 @@ urlpatterns = [
     url(r'^register_user', views.Register_user.as_view(), name = 'register_user'),
     url(r'^login_user', login, {'template_name':'users/login.html'}, name = 'login_user'),
     url(r'^logout_user', logout, name = 'logout_user'),
-    url(r'^user', views.Wall_user, name = 'wall_user'),
+    url(r'^user$', views.Wall_user, name = 'wall_user'),
+    url(r'^colegios$', views.GooglePlaces, name = 'schools'),
 ]
 
 # {'template_name': 'users/login.html','redirect_field_name': '/'}
