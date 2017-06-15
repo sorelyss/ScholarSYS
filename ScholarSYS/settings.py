@@ -83,7 +83,7 @@ DATABASES = {
         'NAME': 'scholarsys_db',
         'USER': 'root',
         'PASSWORD': 'control1234',
-        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
+        'HOST': 'mydbinst-rds.catb3i4xromj.us-west-2.rds.amazonaws.com',   # Or an IP Address that your DB is hosted on
         'PORT': '3306'
     }
 }
