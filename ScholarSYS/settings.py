@@ -81,7 +81,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'scholarsys_db',
-        'USER': 'root',
+        'USER': 'nao',
         'PASSWORD': 'control1234',
         'HOST': 'mydbinst-rds.catb3i4xromj.us-west-2.rds.amazonaws.com',   # Or an IP Address that your DB is hosted on
         'PORT': '3306'
